@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenAI PII Chat POC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>OpenAI Document Chat POC <br/>(with PII Redacted)</h2>
+    <form id="chatForm" enctype="multipart/form-data">
+      <label for="document">Upload Document</label>
+      <input type="file" id="document" name="document" required>
+
+      <label for="prompt">Your Prompt</label>
+      <textarea id="prompt" name="prompt" required placeholder="Ask something about the document..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="response"></div>
+  </div>
+  <script>
+    document.getElementById('chatForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      document.getElementById('response').textContent = "Processing...";
+      const res = await fetch('/chat', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        const data = await res.json();
+        document.getElementById('response').textContent = data.answer;
+      } else {
+        document.getElementById('response').textContent = "Error processing request.";
+      }
+    });
+  </script>
+</body>
+</html>

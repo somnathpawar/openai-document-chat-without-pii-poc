@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-comprehend": "^3.826.0",
+    "aws-sdk": "^2.1692.0",
+    "express": "^5.1.0",
+    "mammoth": "^1.9.1",
+    "multer": "^2.0.1",
+    "openai": "^5.1.1",
+    "pdf-parse": "^1.1.1"
+  }
+}
