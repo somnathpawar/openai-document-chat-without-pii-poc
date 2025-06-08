@@ -2,14 +2,14 @@
 
 ## Overview
 
-This Proof of Concept (POC) demonstrates a secure, privacy-preserving chat interface for documents using OpenAI API and AWS Comprehend. Users can upload a document, have any sensitive PII (Personally Identifiable Information) redacted, and then interact with the document using OpenAI's language models.
+This Proof of Concept (POC) demonstrates a secure, privacy-preserving chat interface for documents using OpenAI API and Amazon Comprehend. Users can upload a document, have any sensitive PII (Personally Identifiable Information) redacted, and then interact with the document using OpenAI's language models.
 
 ---
 
 ## Features
 
 - **Document Upload:** Supports PDF, DOCX, and other common formats.
-- **PII Redaction:** Uses AWS Comprehend to detect and redact sensitive PII (emails, phone numbers, addresses, SSNs, credit/debit card numbers) before sending content to the LLM.
+- **PII Redaction:** Uses Amazon Comprehend to detect and redact sensitive PII (emails, phone numbers, addresses, SSNs, credit/debit card numbers) before sending content to the LLM.
 - **Chat with Document:** Users can ask questions about the redacted document, and the LLM responds based on the content.
 - **Simple Web UI:** Clean, user-friendly interface for uploading documents and chatting.
 
@@ -19,7 +19,7 @@ This Proof of Concept (POC) demonstrates a secure, privacy-preserving chat inter
 
 1. **User uploads a document** and enters a prompt/question.
 2. **Text is extracted** from the document.
-3. **Sensitive PII is detected and redacted** using AWS Comprehend.
+3. **Sensitive PII is detected and redacted** using Amazon Comprehend.
 4. **Redacted text and user prompt** are sent to OpenAI's GPT model.
 5. **Model response** is displayed to the user.
 6. **Uploaded file is deleted** after processing for security.
@@ -103,7 +103,7 @@ Upload these as `.txt` files or copy the content into a DOCX/PDF for testing.
 ## Technical Details
 
 - **OpenAI Integration:** Uses the OpenAI Node.js SDK to interact with GPT models (currently configured for gpt-3.5-turbo).
-- **PII Detection:** AWS Comprehend is used to identify sensitive information in documents.
+- **PII Detection:** Amazon Comprehend is used to identify sensitive information in documents.
 - **Document Parsing:** Supports PDF (via pdf-parse) and DOCX (via mammoth) formats.
 - **Security:** Uploaded files are automatically deleted after processing.
 
